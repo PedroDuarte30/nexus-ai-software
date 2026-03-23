@@ -1,9 +1,22 @@
 :root {
+    /* Colors */
     --primary: #00f2fe;
     --secondary: #7000ff;
     --bg-dark: #0a0b10;
+    
+    /* Text */
     --text-main: #ffffff;
     --text-muted: #a0a0a0;
+    
+    /* Glassmorphism */
     --glass-bg: rgba(255, 255, 255, 0.03);
     --glass-border: rgba(255, 255, 255, 0.08);
+
+    /* Typography */
+    --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-size-base: 1.4rem;
+    --font-bold: 700;
+    
+    /* Reutilização (DRY) */
+    --gradient-main: linear-gradient(to right, var(--primary), var(--secondary));
 }
