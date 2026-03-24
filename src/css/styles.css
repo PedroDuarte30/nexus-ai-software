@@ -89,7 +89,7 @@ nav {
 
 /* Hero Section */
 .hero {
-  padding: 12rem 0 5rem;
+  padding: 10rem 0 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -163,10 +163,9 @@ nav {
 
 /* Features Section */
 .features {
-  padding: 10rem 2rem;
+  padding: 4rem 2rem;
   position: relative;
   overflow: hidden;
-  margin-top: 5rem;
 }
 
 .features::after {
@@ -184,14 +183,13 @@ nav {
 }
 
 .section-header {
-  margin-bottom: 6rem;
+  margin-top: 6rem;
   text-align: center;
 }
 
 .section-header h2 {
-  margin-top: 5rem;
   font-size: 3rem;
-  margin-bottom: 2rem; /* Reduzi os 8rem para ser mais proporcional */
+  margin-bottom: 2rem;
   line-height: 1.2;
 }
 
@@ -249,6 +247,88 @@ nav {
   background: rgba(255, 255, 255, 0.05);
 }
 
+/*Pricing Section*/
+.pricing {
+  padding: 4rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+.pricing-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(10px);
+  padding: 4rem 3rem;
+  border-radius: 2.5rem;
+  text-align: center;
+  position: relative;
+  transition: 0.3s;
+  gap: 3rem;
+  margin-top: 4rem;
+}
+
+/*Featured: the Popular Plan*/
+.pricing-card.popular {
+  border: 2px solid var(--primary);
+  transform: scale(1.02);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.badge {
+  position: absolute;
+  top: -1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.5rem 1.5rem;
+  border-radius: 2rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  background: var(--gradient-main);
+  color: white;
+}
+
+.card-type {
+  font-size: 1.8rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.price {
+  font-size: 4.8rem;
+  font-weight: 800;
+  margin-bottom: 3rem;
+}
+
+.price span {
+  font-size: 1.6rem;
+  color: var(--text-muted);
+}
+
+.features-list {
+  list-style: none;
+  text-align: left;
+  margin-bottom: 4rem;
+}
+
+.features-list li {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.features-list i {
+  color: var(--primary);
+  font-size: 1.8rem;
+}
+
 /* Tablets and Desktop */
 @media (min-width: 769px) {
   .container {
@@ -294,10 +374,31 @@ nav {
 
   .feature-card {
     border: 2px solid var(--glass-border);
-    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+    transition:
+      transform 0.4s ease,
+      border-color 0.4s ease,
+      box-shadow 0.4s ease;
   }
 
   .feature-card:hover {
     box-shadow: 0 10px 30px rgba(0, 242, 254, 0.1);
+  }
+
+  .pricing {
+    padding: 10rem 2rem;
+    margin-top: 5rem;
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    align-items: center;
+    margin-top: 6rem;
+  }
+
+  .pricing-card.popular {
+    padding: 6rem 3rem; 
+    transform: scale(1.05); 
+    border-color: var(--primary); 
   }
 }
