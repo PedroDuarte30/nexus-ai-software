@@ -1,5 +1,6 @@
 @import url(variables.css);
 
+/* --- Reset & Base --- */
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
@@ -26,12 +27,13 @@ body {
   padding: 0 2rem;
 }
 
+/* --- Header & Navigation --- */
 header {
   width: 100%;
   padding: 1.5rem 0;
   position: fixed;
   top: 0;
-  z-index: 1000;
+  z-index: 9999;
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--glass-border);
 }
@@ -54,6 +56,7 @@ nav {
   -webkit-text-fill-color: transparent;
 }
 
+/* Menu links - Base (Hidden for JS) */
 .nav-links {
   display: none;
   list-style: none;
@@ -71,6 +74,14 @@ nav {
   color: var(--primary);
 }
 
+.menu-toggle {
+  display: block;
+  font-size: 2rem;
+  color: var(--primary);
+  cursor: pointer;
+  z-index: 10001;
+}
+
 .btn-nav {
   padding: 1rem 2.5rem;
   border: 1px solid var(--primary);
@@ -81,21 +92,14 @@ nav {
   transition: 0.3s;
 }
 
-.btn-nav:hover {
-  background: var(--primary);
-  color: var(--bg-dark);
-  box-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
-}
-
-/* Hero Section */
+/* --- Hero Section --- */
 .hero {
-  padding: 10rem 0 2rem;
+  padding: 12rem 2rem 5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   gap: 4rem;
-  margin: 3.2rem;
 }
 
 .hero-content h1 {
@@ -121,11 +125,12 @@ nav {
 .btn-secondary {
   width: 100%;
   text-align: center;
-  padding: 0.65rem;
+  padding: 1.2rem;
   border-radius: 0.8rem;
   text-decoration: none;
   background: var(--gradient-main);
   color: white;
+  font-weight: 600;
 }
 
 .hero-image {
@@ -161,36 +166,19 @@ nav {
   font-size: 4rem;
 }
 
-/* Features Section */
+/* --- Features Section --- */
 .features {
-  padding: 4rem 2rem;
-  position: relative;
-  overflow: hidden;
-}
-
-.features::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  right: -10%;
-  width: 400px;
-  height: 400px;
-  background: var(--secondary);
-  filter: blur(180px);
-  opacity: 0.15;
-  z-index: -1;
-  pointer-events: none;
+  padding: 8rem 2rem;
 }
 
 .section-header {
-  margin-top: 6rem;
+  margin-bottom: 6rem;
   text-align: center;
 }
 
 .section-header h2 {
   font-size: 3rem;
   margin-bottom: 2rem;
-  line-height: 1.2;
 }
 
 .section-header h2 span {
@@ -210,7 +198,6 @@ nav {
   display: grid;
   grid-template-columns: 1fr;
   gap: 3rem;
-  padding-top: 2rem;
 }
 
 .feature-card {
@@ -220,7 +207,6 @@ nav {
   padding: 4rem 3rem;
   border-radius: 2.5rem;
   transition: 0.4s ease;
-  text-align: left;
 }
 
 .feature-card i {
@@ -247,11 +233,9 @@ nav {
   background: rgba(255, 255, 255, 0.05);
 }
 
-/*Pricing Section*/
+/* --- Pricing Section --- */
 .pricing {
-  padding: 4rem 2rem;
-  position: relative;
-  overflow: hidden;
+  padding: 8rem 2rem;
 }
 
 .pricing-grid {
@@ -269,11 +253,8 @@ nav {
   text-align: center;
   position: relative;
   transition: 0.3s;
-  gap: 3rem;
-  margin-top: 4rem;
 }
 
-/*Featured: the Popular Plan*/
 .pricing-card.popular {
   border: 2px solid var(--primary);
   transform: scale(1.02);
@@ -293,21 +274,10 @@ nav {
   color: white;
 }
 
-.card-type {
-  font-size: 1.8rem;
-  color: var(--text-muted);
-  margin-bottom: 1rem;
-}
-
 .price {
   font-size: 4.8rem;
   font-weight: 800;
   margin-bottom: 3rem;
-}
-
-.price span {
-  font-size: 1.6rem;
-  color: var(--text-muted);
 }
 
 .features-list {
@@ -324,31 +294,87 @@ nav {
   gap: 1rem;
 }
 
-.features-list i {
-  color: var(--primary);
-  font-size: 1.8rem;
+
+/* --- Tablet (Up to 768px) --- */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #0a0b10; 
+    z-index: 10000;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .nav-links.active {
+    display: flex !important;
+  }
+
+  .nav-links a {
+    font-size: 2.4rem;
+  }
+
+  .btn-nav {
+    display: none;
+  }
 }
 
-/* Tablets and Desktop */
+/* --- DESKTOP (769px or higher) --- */
 @media (min-width: 769px) {
   .container {
     padding: 0 4rem;
   }
 
+  /* Reset Navigation */
   .nav-links {
-    display: flex;
+    display: flex !important;
+    position: static;
+    height: auto;
+    width: auto;
+    background: transparent;
+    flex-direction: row;
+    gap: 4rem;
+  }
+
+  .menu-toggle {
+    display: none !important;
+  }
+
+  .btn-nav {
+    display: block;
   }
 
   .hero {
     flex-direction: row;
     text-align: left;
-    padding-top: 15rem;
-    gap: 5rem;
-    align-items: center;
+    padding: 18rem 0 10rem !important; 
+    gap: 8rem;
   }
 
+  .features, .pricing {
+    padding: 12rem 2rem !important;
+  }
+
+  /* Hero Content adjustments */
   .hero-content h1 {
     font-size: clamp(4rem, 5vw, 6.4rem);
+  }
+
+  .hero-btns {
+    flex-direction: row;
+    gap: 2rem;
+    justify-content: flex-start;
+  }
+
+  .btn-primary, .btn-secondary {
+    width: auto;
+    padding: 1.2rem 4rem; 
   }
 
   .hero-image {
@@ -360,45 +386,14 @@ nav {
     transform: rotateY(-15deg) rotateX(10deg);
   }
 
-  .section-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .features-grid {
+  /* Grids */
+  .features-grid, .pricing-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 4rem;
-    align-items: stretch;
-  }
-
-  .feature-card {
-    border: 2px solid var(--glass-border);
-    transition:
-      transform 0.4s ease,
-      border-color 0.4s ease,
-      box-shadow 0.4s ease;
-  }
-
-  .feature-card:hover {
-    box-shadow: 0 10px 30px rgba(0, 242, 254, 0.1);
-  }
-
-  .pricing {
-    padding: 10rem 2rem;
-    margin-top: 5rem;
-  }
-
-  .pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); 
-    align-items: center;
-    margin-top: 6rem;
   }
 
   .pricing-card.popular {
-    padding: 6rem 3rem; 
-    transform: scale(1.05); 
-    border-color: var(--primary); 
+    padding: 6rem 3rem;
+    transform: scale(1.05);
   }
 }
