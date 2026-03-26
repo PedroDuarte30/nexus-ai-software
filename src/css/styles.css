@@ -294,6 +294,35 @@ nav {
   gap: 1rem;
 }
 
+.main-footer {
+  padding: 2rem 0;
+  text-align: left;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.footer-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  color: var(--primary);
+}
+
+.social-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
 
 /* --- Tablet (Up to 768px) --- */
 @media (max-width: 768px) {
@@ -305,7 +334,7 @@ nav {
     left: 0;
     width: 100%;
     height: 100vh;
-    background: #0a0b10; 
+    background: #0a0b10;
     z-index: 10000;
     justify-content: center;
     align-items: center;
@@ -324,6 +353,7 @@ nav {
     display: none;
   }
 }
+
 
 /* --- DESKTOP (769px or higher) --- */
 @media (min-width: 769px) {
@@ -353,11 +383,12 @@ nav {
   .hero {
     flex-direction: row;
     text-align: left;
-    padding: 18rem 0 10rem !important; 
+    padding: 18rem 0 10rem !important;
     gap: 8rem;
   }
 
-  .features, .pricing {
+  .features,
+  .pricing {
     padding: 12rem 2rem !important;
   }
 
@@ -372,9 +403,10 @@ nav {
     justify-content: flex-start;
   }
 
-  .btn-primary, .btn-secondary {
+  .btn-primary,
+  .btn-secondary {
     width: auto;
-    padding: 1.2rem 4rem; 
+    padding: 1.2rem 4rem;
   }
 
   .hero-image {
@@ -387,7 +419,8 @@ nav {
   }
 
   /* Grids */
-  .features-grid, .pricing-grid {
+  .features-grid,
+  .pricing-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 4rem;
   }
